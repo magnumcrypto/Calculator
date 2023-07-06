@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+@font-face {
+    font-family: 'calculator';
+    src: url('./fonts/calculator/Calculator.ttf') format('truetype');
+}
+
+body {
+    background: linear-gradient(to bottom right, #542437 0%, #CDB380 100%) 100% no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+#body-calculator {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 10%;
+
+    border-radius: 16px;
+    padding: 10px;
+    text-align: center;
+    background-color: #444141;
+    box-shadow: 0 0 4rem 0 rgba(0, 0, 0, 0.3);
+
+}
+
+#screen {
+    padding-right: 5px;
+    text-align: right;
+    max-width: 415px;
+    min-height: 120px;
+    border: none;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(145deg, rgba(255, 255, 255, 1) 30%, rgba(216, 216, 216, 1) 53%, rgba(175, 175, 175, 1) 74%);
+    background: -webkit-linear-gradient(145deg, rgba(255, 255, 255, 1) 30%, rgba(216, 216, 216, 1) 53%, rgba(175, 175, 175, 1) 74%);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 1) 30%, rgba(216, 216, 216, 1) 53%, rgba(175, 175, 175, 1) 74%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#afafaf", GradientType=1);
+    font-weight: 600;
+    word-break: break-word;
+    white-space: normal;
+}
+
+#screen p {
+    font-family: 'calculator';
+    display: block;
+    text-align: right;
+}
+
+#firstNumbers {
+    font-size: 40px;
+}
+
+#operators {
+    font-size: 40px;
+
+}
+
+#secondNumbers {
+    font-size: 20px;
+}
+
+#buttons {
+    padding: 0;
+    width: 423px;
+    margin: auto;
+    overflow: hidden;
+    list-style: none;
+}
+
+.button {
+    float: left;
+    padding: 0px;
+    margin-right: 13px;
+    margin-bottom: 10px;
+    width: 95px;
+    height: 68px;
+    padding: 18px 0 12px;
+    color: white;
+    font-family: "Myriad Pro", Arial, sans-serif;
+    font-size: 1.6em;
+    font-weight: bold;
+    letter-spacing: -2px;
+    background-color: #2f2f2f;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: #000 0px -1px 0px;
+    box-shadow: inset rgba(255, 255, 255, 0.1) 0px 1px 0px, inset rgba(0, 0, 0, 0.2) 0px -2px 2px;
+    -webkit-box-shadow: inset rgba(255, 255, 255, 0.1) 0px 1px 0px, inset rgba(0, 0, 0, 0.2) 0px -2px 2px;
+    -moz-box-shadow: inset rgba(255, 255, 255, 0.1) 0px 1px 0px, inset rgba(0, 0, 0, 0.2) 0px -2px 2px;
+    background-image: -moz-linear-gradient(top, #363636 0%, #313234 40%, #2f2f2f 100%);
+    background-image: -webkit-linear-gradient(top, #363636 0%, #313234 40%, #2f2f2f 100%);
+    background-image: linear-gradient(top, #363636 0%, #313234 40%, #2f2f2f 100%);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button:nth-child(4n) {
+    margin-right: 0;
+}
+
+#equal {
+    height: 151px;
+}
+
+/* Wide 0 */
+.zero {
+    width: 205px;
+    margin-top: -78px;
+    margin-right: 5px;
+}
+
+/* shift last row up, because the tall button pushes it down */
+.point {
+    margin-top: -78px;
+    margin-left: 216px;
+}
+
+#equal:hover {
+    font-weight: bold;
+    border: none;
+    color: white;
+    background: linear-gradient(145deg, rgb(245, 175, 45), rgb(202, 131, 0));
+}
+
+.arrow {
+    font-weight: bolder;
+}
+
+.button:hover {
+    font-weight: bold;
+    border: none;
+    color: rgb(15, 173, 247);
+    background: linear-gradient(145deg, #5c5858, #3d3b3b);
+}
