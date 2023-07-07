@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
         buttons[i].addEventListener('mouseover', changeSize);
         buttons[i].addEventListener('mouseout', changeSize);
     }
+
+    const drawResult = document.getElementById('equal');
+    drawResult.addEventListener('click', calculateResult);
 });
 
 let selectedOperator = '';
@@ -48,46 +51,41 @@ function drawInScreen() {
         secondNumbers.innerHTML = '';
         selectedOperator = '';
         currentNumber = '';
-    } else if (this.id !== 'equal' && this.id !== 'left' && this.id !== 'rigth') {
+    } else if (this.id !== 'equal') {
         selectedOperator = values;
         operatorParag.innerHTML = selectedOperator;
     }
+}
 
-    const drawResult = document.getElementById('equal');
-    drawResult.addEventListener('click', () => {
-        const first = document.getElementById('firstNumbers');
-        const second = document.getElementById('secondNumbers');
-        const operator = document.getElementById('operators');
+function calculateResult() {
+    const first = document.getElementById('firstNumbers');
+    const second = document.getElementById('secondNumbers');
+    const operator = document.getElementById('operators');
 
-        let secondValue = second.textContent;
-        secondValue = (secondValue % 1 == 0) ? parseInt(secondValue) : parseFloat(secondValue);
+    let secondValue = second.textContent;
+    secondValue = (secondValue % 1 == 0) ? parseInt(secondValue) : parseFloat(secondValue);
 
-        let firstValue = first.textContent;
-        firstValue = (firstValue % 1 == 0) ? parseInt(firstValue) : parseFloat(firstValue);
+    let firstValue = first.textContent;
+    firstValue = (firstValue % 1 == 0) ? parseInt(firstValue) : parseFloat(firstValue);
 
-        if (operator.textContent === '+') {
-            let result = firstValue + secondValue;
-            first.innerHTML = result;
-            second.innerHTML = '';
-            operator.textContent = '';
-        }
-        if (operator.textContent === '-') {
-            let result = firstValue - secondValue;
-            first.innerHTML = Math.fround(result);
-            second.innerHTML = '';
-            operator.textContent = '';
-        }
-        if (operator.textContent === '×') {
-            let result = firstValue * secondValue;
-            first.innerHTML = result;
-            second.innerHTML = '';
-            operator.textContent = '';
-        }
-        if (operator.textContent === '÷') {
-            let result = firstValue / secondValue;
-            first.innerHTML = Math.fround(result);
-            second.innerHTML = '';
-            operator.textContent = '';
-        }
-    });
+    const result = solveOperation(operator.textContent, firstValue, secondValue);
+    first.textContent = result;
+    second.innerHTML = '';
+    operator.textContent = '';
+}
+
+function solveOperation(operatorType, first, second) {
+    let result;
+
+    if (operatorType === '+') {
+        result = first + second;
+    } else if (operatorType === '-') {
+        result = first - second;
+    } else if (operatorType === '×') {
+        result = first * second;
+    } else if (operatorType === '÷') {
+        result = first / second;
+    }
+
+    return (result % 1 === 0) ? result : result.toFixed(4);
 }
